@@ -11,7 +11,6 @@ Create a new microfrontend `tenant-mgmt-mfe` following the same pattern as `asse
 - [ ] Add tenant status tracking (e.g., Active, Inactive, Pending, Suspended)
 - [ ] Display tenant list with ability to view, edit, and delete tenants
 - [ ] Provide form for adding and editing tenant information
-- [ ] Include form validation for tenant data
 - [ ] Store and manage tenant data similar to how assets and work orders are handled
 
 ### Shell Integration
