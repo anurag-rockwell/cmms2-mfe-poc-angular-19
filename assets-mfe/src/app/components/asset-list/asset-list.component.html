@@ -1,0 +1,71 @@
+<div class="list-container">
+  <h2 class="list-title">All Assets ({{ assets().length }})</h2>
+
+  @if (assets().length === 0) {
+    <p class="empty-message">No assets found. Add one to get started.</p>
+  } @else {
+    <table class="assets-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (asset of assets(); track asset.id) {
+          <tr>
+            <td class="name-cell">{{ asset.name }}</td>
+            <td>{{ asset.location }}</td>
+            <td>
+              <span class="status-badge" [class]="'status-' + asset.status.toLowerCase()">
+                {{ asset.status }}
+              </span>
+            </td>
+            <td>{{ asset.category }}</td>
+            <td class="actions-cell">
+              <button (click)="edit(asset)" class="btn-edit">Edit</button>
+              <button (click)="delete(asset.id)" class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  @if (showEditModal()) {
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <h3 class="modal-title">Edit Asset</h3>
+        <div class="modal-form">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input [(ngModel)]="editingAsset()!.name" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input [(ngModel)]="editingAsset()!.location" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select [(ngModel)]="editingAsset()!.status" class="form-select">
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="INACTIVE">INACTIVE</option>
+              <option value="MAINTENANCE">MAINTENANCE</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <input [(ngModel)]="editingAsset()!.category" class="form-input">
+          </div>
+          <div class="modal-actions">
+            <button (click)="saveEdit()" class="btn-save">Save</button>
+            <button (click)="closeModal()" class="btn-cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

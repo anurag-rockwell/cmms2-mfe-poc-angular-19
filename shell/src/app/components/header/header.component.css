@@ -1,0 +1,106 @@
+.navbar {
+  background: #2c3e50;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.hamburger {
+  display: block;
+}
+
+.brand h1 {
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  margin: 2px 0 0 0;
+  font-weight: 400;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 20px;
+}
+
+.badge-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.badge-counter:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.badge-icon {
+  font-size: 22px;
+}
+
+.badge-count {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 13px;
+}
+
+.badge-count.assets {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.badge-count.workorders {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.badge-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}

@@ -1,0 +1,54 @@
+<div class="form-container">
+  <h2 class="form-title">Add New Work Order</h2>
+  <form (ngSubmit)="submit()" class="work-order-form">
+    <div class="form-group">
+      <label class="form-label">Title</label>
+      <input [(ngModel)]="workOrder.title" name="title" required 
+             class="form-input" placeholder="e.g., Fix AC Unit in Building A">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Description</label>
+      <textarea [(ngModel)]="workOrder.description" name="description" required 
+                class="form-textarea" rows="4" 
+                placeholder="Detailed description of the work order..."></textarea>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Assignee</label>
+        <input [(ngModel)]="workOrder.assignee" name="assignee" required 
+               class="form-input" placeholder="e.g., John Doe">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Priority</label>
+        <select [(ngModel)]="workOrder.priority" name="priority" class="form-select">
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select [(ngModel)]="workOrder.status" name="status" class="form-select">
+          <option value="OPEN">OPEN</option>
+          <option value="PENDING">PENDING</option>
+          <option value="IN_PROGRESS">IN PROGRESS</option>
+          <option value="CLOSED">CLOSED</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Due Date</label>
+        <input [(ngModel)]="workOrder.dueDate" name="dueDate" type="date" 
+               class="form-input" required>
+      </div>
+    </div>
+    
+    <button type="submit" class="submit-btn">Create Work Order</button>
+  </form>
+</div>

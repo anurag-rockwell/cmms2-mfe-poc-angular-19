@@ -1,0 +1,23 @@
+{
+  "name": "work-orders",
+  "displayName": "Work Orders",
+  "icon": "📋",
+  "version": "1.0.0",
+  "owner": "workorders-team@company.com",
+  "routes": [
+    {
+      "path": "/workorders/all",
+      "component": "WorkOrderListComponent",
+      "label": "All Work Orders",
+      "icon": "📑",
+      "description": "View and manage all work orders"
+    },
+    {
+      "path": "/workorders/add",
+      "component": "WorkOrderFormComponent",
+      "label": "Add Work Order",
+      "icon": "✏️",
+      "description": "Create a new work order"
+    }
+  ]
+}

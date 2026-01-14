@@ -1,0 +1,16 @@
+{
+  "name": "dashboard",
+  "displayName": "Dashboard",
+  "icon": "📊",
+  "version": "1.0.0",
+  "owner": "dashboard-team@company.com",
+  "routes": [
+    {
+      "path": "/dashboard",
+      "component": "DashboardComponent",
+      "label": "Overview",
+      "icon": "📈",
+      "description": "System overview and statistics"
+    }
+  ]
+}

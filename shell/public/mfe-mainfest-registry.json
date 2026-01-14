@@ -1,0 +1,24 @@
+{
+  "description": "Registry of all MFEs - Shell fetches manifest from each MFE's URL",
+  "version": "1.0.0",
+  "mfes": [
+    {
+      "name": "dashboard",
+      "url": "http://localhost:5003",
+      "manifestPath": "/manifest.json",
+      "enabled": true
+    },
+    {
+      "name": "assets",
+      "url": "http://localhost:5001",
+      "manifestPath": "/manifest.json",
+      "enabled": true
+    },
+    {
+      "name": "work-orders",
+      "url": "http://localhost:5002",
+      "manifestPath": "/manifest.json",
+      "enabled": true
+    }
+  ]
+}

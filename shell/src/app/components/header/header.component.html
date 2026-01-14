@@ -1,0 +1,31 @@
+<div class="navbar">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <button class="menu-toggle" (click)="onToggleSidebar()" title="Toggle Sidebar">
+        <span class="hamburger">☰</span>
+      </button>
+      <div class="brand">
+        <h1>CMMS 2.0</h1>
+        <p class="subtitle">Micro Frontend Architecture</p>
+      </div>
+    </div>
+    
+    <div class="navbar-right">
+      <div class="badge-counter" title="Active Assets">
+        <span class="badge-icon">📦</span>
+        <div class="badge-count assets">
+          {{ activeAssets() }}
+        </div>
+        <span class="badge-label">Active</span>
+      </div>
+      
+      <div class="badge-counter" title="Pending Work Orders">
+        <span class="badge-icon">📋</span>
+        <div class="badge-count workorders">
+          {{ pendingWorkOrders() }}
+        </div>
+        <span class="badge-label">Pending</span>
+      </div>
+    </div>
+  </div>
+</div>

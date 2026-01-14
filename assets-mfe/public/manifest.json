@@ -1,0 +1,23 @@
+{
+  "name": "assets",
+  "displayName": "Assets",
+  "icon": "📦",
+  "version": "1.0.0",
+  "owner": "assets-team@company.com",
+  "routes": [
+    {
+      "path": "/assets/all",
+      "component": "AssetListComponent",
+      "label": "All Assets",
+      "icon": "📋",
+      "description": "View and manage all assets"
+    },
+    {
+      "path": "/assets/add",
+      "component": "AssetFormComponent",
+      "label": "Add Asset",
+      "icon": "➕",
+      "description": "Create a new asset"
+    }
+  ]
+}

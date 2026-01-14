@@ -1,0 +1,94 @@
+<div class="list-container">
+  <h2 class="list-title">All Work Orders ({{ workOrders().length }})</h2>
+
+  @if (workOrders().length === 0) {
+    <p class="empty-message">No work orders found. Add one to get started.</p>
+  } @else {
+    <table class="work-orders-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Assignee</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (wo of workOrders(); track wo.id) {
+          <tr>
+            <td class="title-cell">{{ wo.title }}</td>
+            <td>{{ wo.assignee }}</td>
+            <td>
+              <span class="priority-badge" [class]="'priority-' + wo.priority.toLowerCase()">
+                {{ wo.priority }}
+              </span>
+            </td>
+            <td>
+              <span class="status-badge" [class]="'status-' + wo.status.toLowerCase().replace('_', '-')">
+                {{ wo.status.replace('_', ' ') }}
+              </span>
+            </td>
+            <td>{{ wo.dueDate }}</td>
+            <td class="actions-cell">
+              <button (click)="edit(wo)" class="btn-edit">Edit</button>
+              <button (click)="delete(wo.id)" class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+  @if (showEditModal()) {
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <h3 class="modal-title">Edit Work Order</h3>
+        <div class="modal-form">
+          <div class="form-group">
+            <label class="form-label">Title</label>
+            <input [(ngModel)]="editingWorkOrder()!.title" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea [(ngModel)]="editingWorkOrder()!.description" class="form-textarea" rows="3"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Assignee</label>
+              <input [(ngModel)]="editingWorkOrder()!.assignee" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Priority</label>
+              <select [(ngModel)]="editingWorkOrder()!.priority" class="form-select">
+                <option value="LOW">LOW</option>
+                <option value="MEDIUM">MEDIUM</option>
+                <option value="HIGH">HIGH</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select [(ngModel)]="editingWorkOrder()!.status" class="form-select">
+                <option value="OPEN">OPEN</option>
+                <option value="PENDING">PENDING</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
+                <option value="CLOSED">CLOSED</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Due Date</label>
+              <input [(ngModel)]="editingWorkOrder()!.dueDate" type="date" class="form-input">
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button (click)="saveEdit()" class="btn-save">Save</button>
+            <button (click)="closeModal()" class="btn-cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

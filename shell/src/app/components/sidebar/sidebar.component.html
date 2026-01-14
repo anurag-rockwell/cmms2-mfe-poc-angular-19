@@ -1,0 +1,23 @@
+<div class="sidebar" [class.collapsed]="collapsed">
+  @for (menu of menus; track menu.label) {
+    <div class="menu-group">
+      <div class="menu-header" (click)="toggleMenu(menu)" [title]="menu.label">
+        <span class="menu-icon">{{ menu.icon }}</span>
+        <span class="menu-title">{{ menu.label }}</span>
+        <span class="expand-icon" [class.expanded]="menu.expanded">
+          {{ menu.expanded ? '▼' : '▶' }}
+        </span>
+      </div>
+      <ul class="menu-items" [class.expanded]="menu.expanded">
+        @for (item of menu.items; track item.route) {
+          <li>
+            <a [routerLink]="item.route" routerLinkActive="active" [title]="item.label">
+              <span class="item-icon">{{ item.icon }}</span>
+              <span class="item-label">{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</div>
